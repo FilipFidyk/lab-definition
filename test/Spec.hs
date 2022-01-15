@@ -6,7 +6,7 @@ import Test.Tasty.HUnit ( testCase, (@?=) )
 
 import Prelude hiding (not)
 
-import Test.Tasty.QuickCheck ( testProperty, Testable(property) )
+import Test.Tasty.QuickCheck ( testProperty, Testable(property), choose )
 
 main :: IO ()
 main = do
@@ -49,7 +49,9 @@ testNotGuard =
 testFac :: TestTree
 testFac = testGroup "fac"
     [ testProperty "generates the factorial of a number"
-        $ property $ \n -> fac n == product [1..n]
+        $ property $ do
+            n <- choose (0,1000)
+            pure $ fac n == product [1..n]
     ]
 
 testFoo :: TestTree
