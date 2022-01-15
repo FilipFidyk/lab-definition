@@ -12,6 +12,7 @@ description:         This lab covers writing basic value and function definition
 
 dependencies:
 - base >= 4.7 && < 5
+- containers
 
 library:
   source-dirs: src
@@ -26,3 +27,7 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - lab-definitions
+    - tasty
+    - tasty-quickcheck
+    - tasty-reporter-muffled
+    - tasty-hunit
