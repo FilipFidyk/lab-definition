@@ -48,15 +48,16 @@ interestingLambda :: (p -> q) -> p -> q
 interestingLambda = error "Not implemented"
 
 -- Write interesting as an operator called £.
+infixr 0 £
 (£) :: (p -> q) -> p -> q
-(£) = undefined
+(£) = error "Not implemented"
 
 
 --------------------------------------------------------------------------------
 
 -- Here is a function called foo:
 foo :: Int -> Int -> Int
-foo x y = if x > y then y else x
+foo x y = if x > y then x - y else y - x
 
 -- Write foo as a lambda function.
 fooLambda :: Int -> Int -> Int
