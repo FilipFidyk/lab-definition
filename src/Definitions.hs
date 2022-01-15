@@ -12,6 +12,7 @@ Have fun :)
 -}
 
 --------------------------------------------------------------------------------
+
 -- Implement `not` using the four different syntaxes we have seen.
 
 notIf, notCase, notTLP, notGuard :: Bool -> Bool
@@ -37,6 +38,7 @@ fac n = error "Not implemented"
 
 
 --------------------------------------------------------------------------------
+
 -- Here is a weird function called interesting:
 interesting :: (p -> q) -> p -> q
 interesting a b = a b
@@ -45,9 +47,12 @@ interesting a b = a b
 interestingLambda :: (p -> q) -> p -> q
 interestingLambda = error "Not implemented"
 
+-- Write interesting as an operator called £.
+(£) :: (p -> q) -> p -> q
+(£) = undefined
+
 
 --------------------------------------------------------------------------------
--- FOO
 
 -- Here is a function called foo:
 foo :: Int -> Int -> Int
