@@ -18,24 +18,35 @@ Have fun :)
 notIf, notCase, notTLP, notGuard :: Bool -> Bool
 
 -- if...then...else...
-notIf = error "Not implemented"
+notIf x = if x == True 
+    then False
+    else True
 
 -- case...of...
-notCase = error "Not implemented"
+notCase x = case x of 
+    True -> False
+    False -> True 
 
 -- top level pattern matching
-notTLP = error "Not implemented"
+notTLP True = False
+notTLP False = True
 
 -- guards
-notGuard = error "Not implemented"
+notGuard x 
+    | x == True = False
+    | otherwise = True
 
+{-I think the most appropriate way to implement the not function is TLP
+and the least appropriate is either if.then.else or guards as they have
+functionality with else or otherwise that can handle multiple different
+inputs in one statement, which is unnecessary for flipping a bool -}
 
 --------------------------------------------------------------------------------
 -- Implement the factorial function.
 
 fac :: Integer -> Integer
-fac n = error "Not implemented"
-
+fac 0 = 1
+fac x = x * fac (x - 1)
 
 --------------------------------------------------------------------------------
 
@@ -45,12 +56,12 @@ interesting a b = a b
 
 -- Write interesting as a lambda function.
 interestingLambda :: (p -> q) -> p -> q
-interestingLambda = error "Not implemented"
+interestingLambda = \a -> \b -> a b
 
 -- Write interesting as an operator called £.
 infixr 0 £
 (£) :: (p -> q) -> p -> q
-(£) = error "Not implemented"
+(£) a b = a b
 
 
 --------------------------------------------------------------------------------
@@ -61,7 +72,9 @@ foo x y = if x > y then x - y else y - x
 
 -- Write foo as a lambda function.
 fooLambda :: Int -> Int -> Int
-fooLambda = error "Not implemented"
+fooLambda = \x -> \y -> if x > y 
+    then x - y 
+    else y - x
 
 -- Golf the definition of foo.
 fooGolfed :: Int -> Int -> Int
